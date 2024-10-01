@@ -1,4 +1,4 @@
-package com.abramoviclaura.androidanalysisui
+package com.abramoviclaura.composeui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.abramoviclaura.androidanalysisui.ui.theme.AndroidAnalysisUITheme
+import com.abramoviclaura.composeui.ui.theme.AndroidAnalysisUITheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
