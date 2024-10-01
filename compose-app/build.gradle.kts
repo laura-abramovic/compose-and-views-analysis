@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.abramoviclaura.androidanalysisui"
+        applicationId = "com.abramoviclaura.androidanalysisui.compose"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -47,6 +47,8 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":shared"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
