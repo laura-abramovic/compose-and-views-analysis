@@ -53,8 +53,8 @@ class BouncingBallFragment : Fragment() {
 
     private fun ImageView.setUpBouncingAnimation(height: Int) {
         val bounceAnimator = ObjectAnimator.ofFloat(this, TRANSLATION_Y_ANIMATOR_NAME, -height.toFloat(), 0f).apply {
-            startDelay = BouncingBallValues.getRandomStartDelay()
-            duration = BouncingBallValues.getRandomDuration()
+            startDelay = BouncingBallValues.getRandomStartDelay().toLong()
+            duration = BouncingBallValues.getRandomDuration().toLong()
             repeatMode = ValueAnimator.REVERSE
             repeatCount = ValueAnimator.INFINITE
             interpolator = BounceInterpolator()
