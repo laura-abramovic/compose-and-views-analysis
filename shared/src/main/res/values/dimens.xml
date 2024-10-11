@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bouncing_ball_size">60dp</dimen>
+    <dimen name="list_item_card_image_size">120dp</dimen>
+
+    <!--  Common spacings  -->
+    <dimen name="common_spacing_xxs">2dp</dimen>
+    <dimen name="common_spacing_xs">4dp</dimen>
+    <dimen name="common_spacing_s">8dp</dimen>
+    <dimen name="common_spacing_m">16dp</dimen>
+    <dimen name="common_spacing_l">32dp</dimen>
+    <dimen name="common_spacing_xl">64dp</dimen>
+    <dimen name="common_spacing_xxl">128dp</dimen>
+
+    <dimen name="common_border_width">1dp</dimen>
+
+    <!--  Common font dimens  -->
+    <dimen name="text_size_xxs">4sp</dimen>
+    <dimen name="text_size_xs">8sp</dimen>
+    <dimen name="text_size_s">12sp</dimen>
+    <dimen name="text_size_m">16sp</dimen>
+    <dimen name="text_size_l">24sp</dimen>
+    <dimen name="text_size_xl">32sp</dimen>
+    <dimen name="text_size_xxl">64sp</dimen>
 </resources>

@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.abramoviclaura.shared.screen.bouncingball.BouncingBallValues
 import kotlin.random.Random
+import com.abramoviclaura.shared.R as SharedR
 
 @Composable
 fun BouncingBallScreen() {
@@ -41,7 +42,7 @@ fun BouncingBallScreen() {
 private fun BouncingBall(modifier: Modifier = Modifier) {
     val windowHeight = LocalConfiguration.current.screenHeightDp
     val windowWidth = LocalConfiguration.current.screenWidthDp
-    val size = dimensionResource(id = com.abramoviclaura.shared.R.dimen.bouncing_ball_size)
+    val size = dimensionResource(id = SharedR.dimen.bouncing_ball_size)
 
     val offsetX = remember { Random.nextInt(0, windowWidth - size.value.toInt()).toFloat() }
     val randomHeight = remember { Random.nextInt(windowHeight / 2, windowHeight - size.value.toInt()) }
@@ -66,7 +67,7 @@ private fun BouncingBall(modifier: Modifier = Modifier) {
     }
 
     Icon(
-        painter = painterResource(id = com.abramoviclaura.shared.R.drawable.ic_basketball),
+        painter = painterResource(id = SharedR.drawable.ic_basketball),
         contentDescription = null,
         tint = color,
         modifier = modifier

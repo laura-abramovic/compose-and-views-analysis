@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.abramoviclaura.shared.screen.bouncingball.BouncingBallValues
 import com.abramoviclaura.views_app.databinding.FragmentBouncingBallBinding
 import kotlin.random.Random
+import com.abramoviclaura.shared.R as SharedR
 
 private const val TRANSLATION_Y_ANIMATOR_NAME = "translationY"
 
@@ -32,7 +33,7 @@ class BouncingBallFragment : Fragment() {
     private fun generateBallImages() {
         val windowHeight = requireActivity().windowManager.defaultDisplay.height
         val windowWidth = requireActivity().windowManager.defaultDisplay.width
-        val imageSize = resources.getDimension(com.abramoviclaura.shared.R.dimen.bouncing_ball_size).toInt()
+        val imageSize = resources.getDimension(SharedR.dimen.bouncing_ball_size).toInt()
 
         repeat(BouncingBallValues.BALL_COUNT) {
             val imageView = generateBallImage(size = imageSize, windowHeight = windowHeight, windowWidth = windowWidth)
@@ -46,7 +47,7 @@ class BouncingBallFragment : Fragment() {
             translationX = Random.nextInt(0, windowWidth - size).toFloat()
         }
 
-        setImageResource(com.abramoviclaura.shared.R.drawable.ic_basketball)
+        setImageResource(SharedR.drawable.ic_basketball)
         setColorFilter(BouncingBallValues.getRandomColor())
         setUpBouncingAnimation(height = Random.nextInt(windowHeight / 2, windowHeight - size))
     }

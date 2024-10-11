@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <!--  Item list screen  -->
+
+    <string name="button_accept_text">Accept</string>
+    <string name="button_decline_text">Decline</string>
+
+    <string name="list_item_category_1">abc</string>
+    <string name="list_item_category_2">def</string>
+    <string name="list_item_category_3">ghi</string>
+    <string name="list_item_category_4">jkl</string>
+
+    <string name="cd_bookmark">Save</string>
+
+</resources>
