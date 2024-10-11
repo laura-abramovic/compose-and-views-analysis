@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_green">#166C17</color>
+    <color name="primary_red">#550527</color>
+    <color name="primary_blue">#001A23</color>
+    <color name="primary_pink">#EDAFB8</color>
+    <color name="primary_white">#FEFEE3</color>
+</resources>

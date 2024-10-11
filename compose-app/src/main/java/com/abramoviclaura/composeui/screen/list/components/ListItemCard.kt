@@ -67,6 +67,8 @@ fun ListItemCard(
                 modifier = Modifier.size(dimensionResource(id = SharedR.dimen.list_item_card_image_size))
             )
 
+            Spacer(modifier = Modifier.width(dimensionResource(id = SharedR.dimen.common_spacing_m)))
+
             Column {
                 Row {
                     Text(
