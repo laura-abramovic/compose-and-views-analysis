@@ -3,10 +3,12 @@ package com.abramoviclaura.shared.screen.list
 import com.abramoviclaura.shared.R
 
 data class ListItemModel(
+    val id: Int,
     val title: String,
     val subtitle: String,
     val categories: List<ListItemCategory>,
-    val imageUrl: String
+    val imageUrl: String,
+    val bookmarked: Boolean
 )
 
 enum class ListItemCategory {

@@ -15,3 +15,6 @@ val PrimaryRed = Color(0xFF550527)
 val PrimaryBlue = Color(0xFF001A23)
 val PrimaryPink = Color(0xFFEDAFB8)
 val PrimaryWhite = Color(0xFFFEFEE3)
+
+val ColorBackground = Color(0xFFFFFFFF)
+val TextColor = Color(0xFF000000)

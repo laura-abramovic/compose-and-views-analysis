@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -16,12 +17,14 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -44,7 +47,7 @@ import com.abramoviclaura.shared.R as SharedR
 @Composable
 fun ListItemCard(
     item: ListItemModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
 
@@ -64,7 +67,10 @@ fun ListItemCard(
                 model = item.imageUrl,
                 contentDescription = null,
                 imageLoader = ImageLoader(context),
-                modifier = Modifier.size(dimensionResource(id = SharedR.dimen.list_item_card_image_size))
+                modifier = Modifier
+                    .size(dimensionResource(id = SharedR.dimen.list_item_card_image_size))
+                    .clip(RoundedCornerShape(dimensionResource(SharedR.dimen.common_spacing_m))),
+                contentScale = ContentScale.Crop
             )
 
             Spacer(modifier = Modifier.width(dimensionResource(id = SharedR.dimen.common_spacing_m)))
@@ -78,10 +84,17 @@ fun ListItemCard(
                         modifier = Modifier.weight(1f)
                     )
 
-                    Icon(
-                        painter = painterResource(id = SharedR.drawable.ic_bookmark),
-                        contentDescription = stringResource(id = SharedR.string.cd_bookmark)
-                    )
+                    IconButton(
+                        onClick = { /* bookmark action */ },
+                        Modifier.offset(y = -dimensionResource(SharedR.dimen.common_spacing_s))
+                    ) {
+                        val bookmarkRes = if (item.bookmarked) SharedR.drawable.ic_bookmark_filled else SharedR.drawable.ic_bookmark
+
+                        Icon(
+                            painter = painterResource(bookmarkRes),
+                            contentDescription = stringResource(id = SharedR.string.cd_bookmark)
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(dimensionResource(id = SharedR.dimen.common_spacing_xs)))
@@ -162,10 +175,12 @@ private fun CardButton(
 @Composable
 private fun ListItemCardPreview() = AndroidAnalysisUITheme {
     val testItem = ListItemModel(
+        id = 0,
         title = "Title",
         subtitle = "Subtitle",
         categories = listOf(ListItemCategory.CATEGORY_1, ListItemCategory.CATEGORY_3),
-        imageUrl = ""
+        imageUrl = "",
+        bookmarked = true
     )
 
     ListItemCard(testItem)

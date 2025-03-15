@@ -3,6 +3,8 @@
 
     <!--  Item list screen  -->
 
+    <string name="item_list_screen_title">Item list</string>
+
     <string name="button_accept_text">Accept</string>
     <string name="button_decline_text">Decline</string>
 
@@ -12,5 +14,4 @@
     <string name="list_item_category_4">jkl</string>
 
     <string name="cd_bookmark">Save</string>
-
 </resources>

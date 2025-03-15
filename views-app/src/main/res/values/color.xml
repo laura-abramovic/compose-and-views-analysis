@@ -5,4 +5,5 @@
     <color name="primary_blue">#001A23</color>
     <color name="primary_pink">#EDAFB8</color>
     <color name="primary_white">#FEFEE3</color>
+    <color name="background">#FFFFFF</color>
 </resources>
