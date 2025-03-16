@@ -12,6 +12,8 @@
         android:layout_width="@dimen/list_item_card_image_size"
         android:layout_height="@dimen/list_item_card_image_size"
         android:layout_marginStart="@dimen/common_spacing_m"
+        android:background="@drawable/background_rounded_corners"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,13 +73,14 @@
         app:layout_constraintTop_toBottomOf="@id/image" />
 
     <ImageButton
-        android:id="@+id/button_save"
+        android:id="@+id/button_bookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/common_spacing_m"
-        android:background="null"
-        android:src="@drawable/ic_bookmark"
+        android:layout_marginEnd="@dimen/common_spacing_l"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/cd_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_bookmark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
