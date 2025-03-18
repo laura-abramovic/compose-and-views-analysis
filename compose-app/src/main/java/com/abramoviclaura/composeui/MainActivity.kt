@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.abramoviclaura.composeui.screen.bouncingball.BouncingBallScreen
-import com.abramoviclaura.composeui.screen.list.ListScreen
+import com.abramoviclaura.composeui.screen.main.MainScreen
 import com.abramoviclaura.composeui.ui.theme.AndroidAnalysisUITheme
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidAnalysisUITheme {
-                ListScreen()
+                MainScreen()
             }
         }
     }

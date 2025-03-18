@@ -17,4 +17,9 @@ val PrimaryPink = Color(0xFFEDAFB8)
 val PrimaryWhite = Color(0xFFFEFEE3)
 
 val ColorBackground = Color(0xFFFFFFFF)
-val TextColor = Color(0xFF000000)
+
+val White = Color(0xFFFFFFFF)
+val Black = Color(0xFF000000)
+val LightGray = Color(0xFF808080)
+
+val LightPink = Color(0xFFFDDCEA)

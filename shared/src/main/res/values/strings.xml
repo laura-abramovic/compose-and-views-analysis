@@ -14,4 +14,8 @@
     <string name="list_item_category_4">jkl</string>
 
     <string name="cd_bookmark">Save</string>
+
+    <!--  Bottom bar  -->
+    <string name="list_label">List</string>
+    <string name="basketball_label">Basketballs</string>
 </resources>
