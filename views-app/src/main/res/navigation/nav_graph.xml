@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/item_list">
+
+    <fragment
+        android:id="@+id/item_list"
+        android:name="com.abramoviclaura.viewsui.screen.list.ListFragment"
+        android:label="@string/list_label" />
+
+    <fragment
+        android:id="@+id/item_basketballs"
+        android:name="com.abramoviclaura.viewsui.screen.bouncingball.BouncingBallFragment"
+        android:label="@string/basketball_label" />
+
+</navigation>

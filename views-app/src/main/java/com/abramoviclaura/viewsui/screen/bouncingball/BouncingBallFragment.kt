@@ -20,11 +20,14 @@ private const val TRANSLATION_Y_ANIMATOR_NAME = "translationY"
 
 class BouncingBallFragment : Fragment() {
 
-    private var _binding: FragmentBouncingBallBinding? = null
-    private val binding get() = _binding!!
+    companion object {
+        const val TAG = "BouncingBallFragment"
+    }
+
+    private lateinit var binding: FragmentBouncingBallBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentBouncingBallBinding.inflate(inflater, container, false)
+        binding = FragmentBouncingBallBinding.inflate(inflater, container, false)
         generateBallImages()
 
         return binding.root
@@ -62,10 +65,5 @@ class BouncingBallFragment : Fragment() {
         }
 
         bounceAnimator.start()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

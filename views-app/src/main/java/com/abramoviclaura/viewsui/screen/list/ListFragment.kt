@@ -14,11 +14,14 @@ import com.abramoviclaura.shared.R as SharedR
 
 class ListFragment : Fragment() {
 
-    private var _binding: FragmentListBinding? = null
-    private val binding get() = _binding!!
+    companion object {
+        const val TAG = "ListFragment"
+    }
+
+    private lateinit var binding: FragmentListBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentListBinding.inflate(inflater, container, false)
+        binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
