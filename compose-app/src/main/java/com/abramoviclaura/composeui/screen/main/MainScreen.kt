@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.abramoviclaura.composeui.screen.bouncingball.BouncingBallNavDestination
 import com.abramoviclaura.composeui.screen.details.DetailsNavDestination
+import com.abramoviclaura.composeui.screen.greetings.GreetingsNavDestination
 import com.abramoviclaura.composeui.screen.list.ListNavDestination
 import com.abramoviclaura.composeui.screen.main.components.BottomNavigationBar
 import com.abramoviclaura.composeui.screen.main.components.toNavDestinationItem
@@ -19,6 +20,7 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     val bottomItems = listOf(
+        GreetingsNavDestination.toNavDestinationItem(navController),
         ListNavDestination.toNavDestinationItem(navController),
         BouncingBallNavDestination.toNavDestinationItem(navController)
     )
@@ -33,12 +35,13 @@ fun MainScreen() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = ListNavDestination.destinationRoute,
+            startDestination = GreetingsNavDestination.destinationRoute,
             modifier = Modifier.padding(paddingValues)
         ) {
+            GreetingsNavDestination.createDestination(this, navController)
             ListNavDestination.createDestination(this, navController)
-            BouncingBallNavDestination.createDestination(this, navController)
             DetailsNavDestination.createDestination(this, navController)
+            BouncingBallNavDestination.createDestination(this, navController)
         }
     }
 }

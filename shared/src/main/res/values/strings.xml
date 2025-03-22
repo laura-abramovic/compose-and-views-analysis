@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  Greetings screen  -->
+    <string name="hello_user">Hello %s!</string>
+    <string name="greet">greet</string>
+    <string name="user">user</string>
+
     <!--  Item list screen  -->
 
     <string name="item_list_screen_title">Item list</string>
@@ -22,4 +27,5 @@
     <!--  Bottom bar  -->
     <string name="list_label">List</string>
     <string name="basketball_label">Basketballs</string>
+    <string name="greetings_label">Greetings</string>
 </resources>
