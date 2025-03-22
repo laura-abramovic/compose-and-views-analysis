@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -21,9 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.abramoviclaura.composeui.ui.theme.AndroidAnalysisUITheme
 import com.abramoviclaura.composeui.ui.theme.PrimaryRed
 import com.abramoviclaura.composeui.ui.theme.PrimaryWhite
+import com.abramoviclaura.composeui.ui.theme.Typography
+import com.abramoviclaura.composeui.ui.theme.White
 import com.abramoviclaura.shared.R as SharedR
 
 @Composable
@@ -34,7 +37,7 @@ fun GreetingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
+            .background(PrimaryWhite),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -43,7 +46,7 @@ fun GreetingsScreen() {
                 id = SharedR.string.hello_user,
                 username.value.ifBlank { stringResource(id = SharedR.string.user) }
             ),
-            style = MaterialTheme.typography.headlineMedium
+            style = Typography.headlineMedium
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(SharedR.dimen.common_spacing_l)))
@@ -51,10 +54,18 @@ fun GreetingsScreen() {
         OutlinedTextField(
             value = input.value,
             onValueChange = { input.value = it },
+            placeholder = {
+                Text(stringResource(SharedR.string.input_hint))
+            },
             maxLines = 1,
             colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = PrimaryRed
-            )
+                focusedIndicatorColor = PrimaryRed,
+                focusedContainerColor = White,
+                unfocusedContainerColor = White
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = dimensionResource(SharedR.dimen.common_spacing_xl))
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(SharedR.dimen.common_spacing_l)))
@@ -68,7 +79,7 @@ fun GreetingsScreen() {
         ) {
             Text(
                 text = stringResource(id = SharedR.string.greet).uppercase(),
-                style = MaterialTheme.typography.bodyLarge,
+                fontSize = dimensionResource(SharedR.dimen.text_size_m).value.sp,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(SharedR.dimen.common_spacing_m),
                     vertical = dimensionResource(SharedR.dimen.common_spacing_s)

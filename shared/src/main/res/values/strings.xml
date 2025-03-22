@@ -5,6 +5,7 @@
     <string name="hello_user">Hello %s!</string>
     <string name="greet">greet</string>
     <string name="user">user</string>
+    <string name="input_hint">Enter your name</string>
 
     <!--  Item list screen  -->
 

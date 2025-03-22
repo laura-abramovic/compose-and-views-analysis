@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  Greetings  -->
+
+    <style name="ButtonGreet" parent="ShapeAppearanceOverlay.Material3.Button">
+        <item name="android:text">@string/button_decline_text</item>
+        <item name="backgroundTint">@color/primary_red</item>
+        <item name="android:textSize">@dimen/text_size_m</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="iconTint">@color/primary_white</item>
+        <item name="android:paddingHorizontal">@dimen/common_spacing_l</item>
+        <item name="android:paddingVertical">@dimen/common_spacing_n</item>
+    </style>
+
     <!--  List item card  -->
 
     <style name="Title" parent="MaterialAlertDialog.Material3.Body.Text">

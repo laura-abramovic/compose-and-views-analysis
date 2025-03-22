@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomBar.setOnItemSelectedListener {
             when (it.itemId) {
+                R.id.item_greetings -> NavigationUI.onNavDestinationSelected(it, navController)
                 R.id.item_list -> NavigationUI.onNavDestinationSelected(it, navController)
                 R.id.item_basketballs -> NavigationUI.onNavDestinationSelected(it, navController)
                 else -> throw IllegalStateException("No such item: ${it.itemId}")

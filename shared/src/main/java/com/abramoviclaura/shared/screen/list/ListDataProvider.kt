@@ -14,7 +14,8 @@ object ListDataProvider {
         "https://cdn.pixabay.com/photo/2023/05/23/07/05/royal-gramma-basslet-8012082_1280.jpg", // fish
         "https://cdn.pixabay.com/photo/2022/05/16/18/17/sheep-7200918_1280.jpg", // sheep
         "https://cdn.pixabay.com/photo/2018/04/10/16/59/bear-3308068_1280.jpg", // polar bear
-        "https://cdn.pixabay.com/photo/2017/03/07/19/10/bouquet-2124991_1280.jpg", // ostrich
+        "https://cdn.pixabay.com/photo/2023/01/08/16/32/penguin-7705687_1280.jpg", // penguin
+        "https://cdn.pixabay.com/photo/2023/04/12/03/49/ai-generated-7918708_1280.jpg", // capybara
     )
 
     private val list = List(ITEM_COUNT) {

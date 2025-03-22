@@ -8,6 +8,7 @@
     <dimen name="common_spacing_xxs">2dp</dimen>
     <dimen name="common_spacing_xs">4dp</dimen>
     <dimen name="common_spacing_s">8dp</dimen>
+    <dimen name="common_spacing_n">12dp</dimen>
     <dimen name="common_spacing_m">16dp</dimen>
     <dimen name="common_spacing_l">32dp</dimen>
     <dimen name="common_spacing_xl">64dp</dimen>
