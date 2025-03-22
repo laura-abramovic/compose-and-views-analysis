@@ -14,11 +14,16 @@ import com.abramoviclaura.views_app.databinding.ItemListCardBinding
 import com.abramoviclaura.views_app.databinding.ItemListCardCategoryBinding
 import com.abramoviclaura.shared.R as SharedR
 
-class ListItemAdapter(private val items: List<ListItemModel>) : RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>() {
+class ListItemAdapter(
+    private val items: List<ListItemModel>,
+    private val onItemClick: (Int) -> Unit,
+) : RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>() {
 
     class ListItemViewHolder(private val binding: ItemListCardBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListItemModel) {
+        fun bind(item: ListItemModel, onItemClick: (Int) -> Unit) {
             binding.apply {
+                root.setOnClickListener { onItemClick(item.id) }
+
                 root.id = item.id
                 image.load(item.imageUrl)
                 image.clipToOutline = true
@@ -87,6 +92,9 @@ class ListItemAdapter(private val items: List<ListItemModel>) : RecyclerView.Ada
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(
+            item = items[position],
+            onItemClick = onItemClick
+        )
     }
 }

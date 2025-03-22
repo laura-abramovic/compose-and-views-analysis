@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abramoviclaura.shared.screen.list.ListDataProvider
+import com.abramoviclaura.views_app.R
 import com.abramoviclaura.views_app.databinding.FragmentListBinding
+import com.abramoviclaura.viewsui.screen.details.DetailsFragment
 import com.abramoviclaura.shared.R as SharedR
 
 class ListFragment : Fragment() {
@@ -20,7 +23,7 @@ class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,7 +35,14 @@ class ListFragment : Fragment() {
 
         binding.itemsList.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = ListItemAdapter(items)
+
+            adapter = ListItemAdapter(
+                items = items,
+                onItemClick = {
+                    val bundle = Bundle().apply { putInt(DetailsFragment.ARGUMENT_ID, it) }
+                    findNavController().navigate(R.id.details_fragment, bundle)
+                }
+            )
 
             val space = resources.getDimensionPixelSize(SharedR.dimen.common_spacing_m)
             addItemDecoration(SpacingItemDecoration(space))

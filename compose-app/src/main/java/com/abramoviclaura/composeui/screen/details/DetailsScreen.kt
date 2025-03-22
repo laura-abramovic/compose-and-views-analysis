@@ -1,5 +1,6 @@
 package com.abramoviclaura.composeui.screen.details
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -24,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import com.abramoviclaura.composeui.ui.theme.AndroidAnalysisUITheme
+import com.abramoviclaura.composeui.ui.theme.PrimaryWhite
 import com.abramoviclaura.composeui.ui.theme.Typography
 import com.abramoviclaura.shared.R
 import com.abramoviclaura.shared.screen.details.DetailsValues
@@ -41,6 +43,7 @@ fun DetailsScreen(
         modifier = Modifier
             .fillMaxSize()
             .systemBarsPadding()
+            .background(PrimaryWhite)
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             IconButton(

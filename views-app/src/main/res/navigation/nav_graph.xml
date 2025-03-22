@@ -7,11 +7,27 @@
     <fragment
         android:id="@+id/item_list"
         android:name="com.abramoviclaura.viewsui.screen.list.ListFragment"
-        android:label="@string/list_label" />
+        android:label="@string/list_label">
+
+        <action
+            android:id="@+id/action_to_details"
+            app:destination="@id/details_fragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/item_basketballs"
         android:name="com.abramoviclaura.viewsui.screen.bouncingball.BouncingBallFragment"
         android:label="@string/basketball_label" />
+
+    <fragment
+        android:id="@+id/details_fragment"
+        android:name="com.abramoviclaura.viewsui.screen.details.DetailsFragment">
+
+        <argument
+            android:name="argument_id"
+            app:argType="integer" />
+
+    </fragment>
 
 </navigation>
