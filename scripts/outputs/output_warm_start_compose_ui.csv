@@ -1,0 +1,9 @@
+Device,Android SDK built for arm64,
+Android Version,9,
+API Level,28
+Run,TotalTime,WaitTime
+1,66,69
+2,70,85
+3,68,79
+4,68,72
+5,63,73
