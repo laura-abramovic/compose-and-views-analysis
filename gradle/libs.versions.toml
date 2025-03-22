@@ -13,6 +13,7 @@ appcompat = "1.7.0"
 material = "1.10.0"
 coilCompose = "2.7.0"
 navigationCompose = "2.8.9"
+uiToolingPreviewAndroid = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+androidx-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

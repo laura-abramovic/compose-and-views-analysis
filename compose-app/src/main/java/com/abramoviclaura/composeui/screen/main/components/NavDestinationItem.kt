@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.abramoviclaura.composeui.navigation.NavDestination
+import com.abramoviclaura.composeui.navigation.BottomBarNavDestination
 
 data class NavDestinationItem(
     @DrawableRes val iconRes: Int,
@@ -18,7 +18,7 @@ data class NavDestinationItem(
 )
 
 @Composable
-fun NavDestination.toNavDestinationItem(navController: NavController): NavDestinationItem {
+fun BottomBarNavDestination.toNavDestinationItem(navController: NavController): NavDestinationItem {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentHierarchy = navBackStackEntry?.destination?.hierarchy
 

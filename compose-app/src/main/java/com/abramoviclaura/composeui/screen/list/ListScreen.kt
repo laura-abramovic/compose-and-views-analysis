@@ -27,7 +27,7 @@ import com.abramoviclaura.shared.R as SharedR
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ListScreen() {
+fun ListScreen(onItemClick: (Int) -> Unit) {
     val items = ListDataProvider.listItems()
 
     Column(
@@ -51,7 +51,10 @@ fun ListScreen() {
                     items = items,
                     key = { _, item -> item.id }
                 ) { index, item ->
-                    ListItemCard(item)
+                    ListItemCard(
+                        item = item,
+                        onItemClick = onItemClick
+                    )
 
                     if (index != items.lastIndex) {
                         Spacer(modifier = Modifier.height(dimensionResource(SharedR.dimen.common_spacing_m)))

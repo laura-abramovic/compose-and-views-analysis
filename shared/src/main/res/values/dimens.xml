@@ -2,6 +2,7 @@
 <resources>
     <dimen name="bouncing_ball_size">60dp</dimen>
     <dimen name="list_item_card_image_size">120dp</dimen>
+    <dimen name="details_image_height">300dp</dimen>
 
     <!--  Common spacings  -->
     <dimen name="common_spacing_xxs">2dp</dimen>

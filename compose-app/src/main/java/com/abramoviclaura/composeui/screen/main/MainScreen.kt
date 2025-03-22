@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.abramoviclaura.composeui.screen.bouncingball.BouncingBallNavDestination
+import com.abramoviclaura.composeui.screen.details.DetailsNavDestination
 import com.abramoviclaura.composeui.screen.list.ListNavDestination
 import com.abramoviclaura.composeui.screen.main.components.BottomNavigationBar
 import com.abramoviclaura.composeui.screen.main.components.toNavDestinationItem
@@ -35,8 +36,9 @@ fun MainScreen() {
             startDestination = ListNavDestination.destinationRoute,
             modifier = Modifier.padding(paddingValues)
         ) {
-            ListNavDestination.createDestination(this)
-            BouncingBallNavDestination.createDestination(this)
+            ListNavDestination.createDestination(this, navController)
+            BouncingBallNavDestination.createDestination(this, navController)
+            DetailsNavDestination.createDestination(this, navController)
         }
     }
 }

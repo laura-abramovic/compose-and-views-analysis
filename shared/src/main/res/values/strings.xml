@@ -15,6 +15,10 @@
 
     <string name="cd_bookmark">Save</string>
 
+    <!--  Details screen  -->
+
+    <string name="cd_back">Go back</string>
+
     <!--  Bottom bar  -->
     <string name="list_label">List</string>
     <string name="basketball_label">Basketballs</string>

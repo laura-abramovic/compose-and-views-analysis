@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -47,6 +48,7 @@ import com.abramoviclaura.shared.R as SharedR
 @Composable
 fun ListItemCard(
     item: ListItemModel,
+    onItemClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -54,6 +56,7 @@ fun ListItemCard(
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(dimensionResource(id = SharedR.dimen.common_spacing_m)))
+            .clickable { onItemClick(item.id) }
             .border(
                 width = dimensionResource(id = SharedR.dimen.common_border_width),
                 color = Color.Black,
@@ -183,5 +186,8 @@ private fun ListItemCardPreview() = AndroidAnalysisUITheme {
         bookmarked = true
     )
 
-    ListItemCard(testItem)
+    ListItemCard(
+        item = testItem,
+        onItemClick = {}
+    )
 }
