@@ -1,12 +1,12 @@
 #!/bin/bash
 
-source scripts/app_startup_time.sh
+source scripts/startuptime/app_startup_time.sh
 
 compose_app_package="com.abramoviclaura.androidanalysisui.compose"
 compose_app_main_activity="$compose_app_package/com.abramoviclaura.composeui.MainActivity"
 
 output_file="output_warm_start_compose_ui.csv"
-output="scripts/outputs/$output_file"
+output="scripts/startuptime/outputs/$output_file"
 
 touch $output
 get_file_header > $output

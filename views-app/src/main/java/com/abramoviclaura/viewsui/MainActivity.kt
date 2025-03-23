@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         setUpNavigation()
+        reportFullyDrawn()
     }
 
     private fun setUpNavigation() {
