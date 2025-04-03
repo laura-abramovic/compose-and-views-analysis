@@ -12,6 +12,8 @@ import androidx.compose.ui.res.stringResource
 import com.abramoviclaura.composeui.ui.theme.Black
 import com.abramoviclaura.composeui.ui.theme.LightGray
 import com.abramoviclaura.composeui.ui.theme.LightPink
+import com.abramoviclaura.shared.screen.LogTag
+import com.abramoviclaura.shared.screen.logMillis
 
 @Composable
 fun BottomNavigationBar(items: List<NavDestinationItem>) {
@@ -19,7 +21,11 @@ fun BottomNavigationBar(items: List<NavDestinationItem>) {
         items.forEach { item ->
             NavigationBarItem(
                 selected = item.isSelected,
-                onClick = item.onClick,
+                onClick = {
+                    logMillis(LogTag.NAVIGATION_TIME) {
+                        item.onClick()
+                    }
+                },
                 icon = {
                     Icon(
                         painter = painterResource(id = item.iconRes),

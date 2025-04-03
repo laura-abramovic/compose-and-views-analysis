@@ -7,9 +7,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.abramoviclaura.shared.screen.LogTag
 import com.abramoviclaura.shared.screen.list.ListItemCategory
 import com.abramoviclaura.shared.screen.list.ListItemModel
 import com.abramoviclaura.shared.screen.list.toStringRes
+import com.abramoviclaura.shared.screen.logMillis
 import com.abramoviclaura.views_app.databinding.ItemListCardBinding
 import com.abramoviclaura.views_app.databinding.ItemListCardCategoryBinding
 import com.abramoviclaura.shared.R as SharedR
@@ -22,7 +24,11 @@ class ListItemAdapter(
     class ListItemViewHolder(private val binding: ItemListCardBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListItemModel, onItemClick: (Int) -> Unit) {
             binding.apply {
-                root.setOnClickListener { onItemClick(item.id) }
+                root.setOnClickListener {
+                    logMillis(LogTag.LIST_DETAILS_NAVIGATION_TIME) {
+                        onItemClick(item.id)
+                    }
+                }
 
                 root.id = item.id
                 image.load(item.imageUrl)

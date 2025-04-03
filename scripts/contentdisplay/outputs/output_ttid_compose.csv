@@ -1,9 +1,0 @@
-Device,Android SDK built for arm64
-Android Version,9
-API Level,28
-Run,TTID,TTFD
-1,+527ms,+527ms
-2,+525ms,+525ms
-3,+528ms,+528ms
-4,+493ms,+493ms
-5,+516ms,+516ms

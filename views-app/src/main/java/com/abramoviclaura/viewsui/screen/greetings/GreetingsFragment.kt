@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.abramoviclaura.shared.screen.LogTag
+import com.abramoviclaura.shared.screen.logMillis
 import com.abramoviclaura.views_app.databinding.FragmentGreetingsBinding
 import com.abramoviclaura.shared.R as SharedR
 
@@ -28,15 +30,19 @@ class GreetingsFragment : Fragment() {
             updateTitle("")
 
             greetingsButton.setOnClickListener {
-                updateTitle(editText.text.toString())
+                logMillis(LogTag.BUTTON_CLICK_TIME) {
+                    updateTitle(editText.text.toString())
+                }
             }
         }
     }
 
     private fun FragmentGreetingsBinding.updateTitle(name: String) {
-        greetingsTitle.text = getString(
-            SharedR.string.hello_user,
-            name.ifBlank { getString(SharedR.string.user) }
-        )
+        logMillis(LogTag.INPUT_TIME) {
+            greetingsTitle.text = getString(
+                SharedR.string.hello_user,
+                name.ifBlank { getString(SharedR.string.user) }
+            )
+        }
     }
 }

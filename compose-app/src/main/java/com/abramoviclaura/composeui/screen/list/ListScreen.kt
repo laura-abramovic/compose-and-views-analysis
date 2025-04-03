@@ -16,19 +16,35 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.abramoviclaura.composeui.screen.list.components.ListItemCard
+import com.abramoviclaura.composeui.screen.main.getActivity
 import com.abramoviclaura.composeui.ui.theme.ColorBackground
 import com.abramoviclaura.composeui.ui.theme.Typography
+import com.abramoviclaura.shared.screen.LogTag
 import com.abramoviclaura.shared.screen.list.ListDataProvider
+import com.abramoviclaura.shared.screen.logMillis
 import com.abramoviclaura.shared.R as SharedR
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ListScreen(onItemClick: (Int) -> Unit) {
     val items = ListDataProvider.listItems()
+
+    val context = LocalContext.current
+    val activity = context.getActivity()
+    val reportDraw = remember { mutableStateOf(false) }
+
+    LaunchedEffect(reportDraw) {
+        if (reportDraw.value) activity?.reportFullyDrawn()
+    }
 
     Column(
         modifier = Modifier
@@ -53,7 +69,14 @@ fun ListScreen(onItemClick: (Int) -> Unit) {
                 ) { index, item ->
                     ListItemCard(
                         item = item,
-                        onItemClick = onItemClick
+                        onItemClick = {
+                            logMillis(LogTag.LIST_DETAILS_NAVIGATION_TIME) {
+                                onItemClick(it)
+                            }
+                        },
+                        modifier = Modifier.onGloballyPositioned {
+                            reportDraw.value = true
+                        }
                     )
 
                     if (index != items.lastIndex) {

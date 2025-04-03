@@ -1,11 +1,16 @@
 package com.abramoviclaura.composeui.screen.main
 
+import android.content.Context
+import android.content.ContextWrapper
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.abramoviclaura.composeui.screen.bouncingball.BouncingBallNavDestination
@@ -20,9 +25,9 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     val bottomItems = listOf(
-        GreetingsNavDestination.toNavDestinationItem(navController),
         ListNavDestination.toNavDestinationItem(navController),
-        BouncingBallNavDestination.toNavDestinationItem(navController)
+        BouncingBallNavDestination.toNavDestinationItem(navController),
+        GreetingsNavDestination.toNavDestinationItem(navController),
     )
 
     Scaffold(
@@ -35,13 +40,19 @@ fun MainScreen() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = GreetingsNavDestination.destinationRoute,
+            startDestination = ListNavDestination.destinationRoute,
             modifier = Modifier.padding(paddingValues)
         ) {
-            GreetingsNavDestination.createDestination(this, navController)
             ListNavDestination.createDestination(this, navController)
             DetailsNavDestination.createDestination(this, navController)
             BouncingBallNavDestination.createDestination(this, navController)
+            GreetingsNavDestination.createDestination(this, navController)
         }
     }
+}
+
+fun Context.getActivity(): ComponentActivity? = when (this) {
+    is ComponentActivity -> this
+    is ContextWrapper -> baseContext.getActivity()
+    else -> null
 }

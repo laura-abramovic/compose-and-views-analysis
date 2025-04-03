@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.abramoviclaura.shared.screen.LogTag
+import com.abramoviclaura.shared.screen.logMillis
 import com.abramoviclaura.views_app.R
 import com.abramoviclaura.views_app.databinding.ActivityMainBinding
 
@@ -18,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         setUpNavigation()
-        reportFullyDrawn()
     }
 
     private fun setUpNavigation() {
@@ -27,14 +28,18 @@ class MainActivity : AppCompatActivity() {
         binding.bottomBar.setupWithNavController(navController)
 
         binding.bottomBar.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_greetings -> NavigationUI.onNavDestinationSelected(it, navController)
-                R.id.item_list -> NavigationUI.onNavDestinationSelected(it, navController)
-                R.id.item_basketballs -> NavigationUI.onNavDestinationSelected(it, navController)
-                else -> throw IllegalStateException("No such item: ${it.itemId}")
+            logMillis(LogTag.NAVIGATION_TIME) {
+                when (it.itemId) {
+                    R.id.item_greetings -> NavigationUI.onNavDestinationSelected(it, navController)
+                    R.id.item_list -> NavigationUI.onNavDestinationSelected(it, navController)
+                    R.id.item_basketballs -> NavigationUI.onNavDestinationSelected(it, navController)
+                    else -> throw IllegalStateException("No such item: ${it.itemId}")
+                }
             }
 
             true
         }
     }
 }
+
+

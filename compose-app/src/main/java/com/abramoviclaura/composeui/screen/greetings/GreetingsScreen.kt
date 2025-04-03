@@ -27,6 +27,8 @@ import com.abramoviclaura.composeui.ui.theme.PrimaryRed
 import com.abramoviclaura.composeui.ui.theme.PrimaryWhite
 import com.abramoviclaura.composeui.ui.theme.Typography
 import com.abramoviclaura.composeui.ui.theme.White
+import com.abramoviclaura.shared.screen.LogTag
+import com.abramoviclaura.shared.screen.logMillis
 import com.abramoviclaura.shared.R as SharedR
 
 @Composable
@@ -53,7 +55,11 @@ fun GreetingsScreen() {
 
         OutlinedTextField(
             value = input.value,
-            onValueChange = { input.value = it },
+            onValueChange = {
+                logMillis(LogTag.INPUT_TIME) {
+                    input.value = it
+                }
+            },
             placeholder = {
                 Text(stringResource(SharedR.string.input_hint))
             },
@@ -71,7 +77,11 @@ fun GreetingsScreen() {
         Spacer(modifier = Modifier.height(dimensionResource(SharedR.dimen.common_spacing_l)))
 
         Button(
-            onClick = { username.value = input.value },
+            onClick = {
+                logMillis(LogTag.BUTTON_CLICK_TIME) {
+                    username.value = input.value
+                }
+            },
             colors = ButtonDefaults.buttonColors(
                 containerColor = PrimaryRed,
                 contentColor = PrimaryWhite

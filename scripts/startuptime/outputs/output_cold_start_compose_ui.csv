@@ -1,9 +1,14 @@
-Device,Android SDK built for arm64
-Android Version,9
-API Level,28
+Device,SM-G991B
+Android Version,14
+API Level,34
 Run,TotalTime,WaitTime
-1,522,528
-2,492,497
-3,521,528
-4,513,520
-5,488,494
+1,1333,1339
+2,1449,1454
+3,1313,1318
+4,1314,1321
+5,1288,1292
+6,1218,1222
+7,1169,1171
+8,1128,1134
+9,1149,1153
+10,1159,1162

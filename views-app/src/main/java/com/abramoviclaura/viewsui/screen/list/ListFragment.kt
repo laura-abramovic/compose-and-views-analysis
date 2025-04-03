@@ -46,6 +46,8 @@ class ListFragment : Fragment() {
 
             val space = resources.getDimensionPixelSize(SharedR.dimen.common_spacing_m)
             addItemDecoration(SpacingItemDecoration(space))
+        }.also {
+            activity?.reportFullyDrawn()
         }
     }
 
