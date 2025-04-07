@@ -3,7 +3,7 @@ package com.abramoviclaura.shared.screen.list
 import kotlin.random.Random
 
 object ListDataProvider {
-    private const val ITEM_COUNT = 100
+    private const val ITEM_COUNT = 1000
 
     private val imageUrls = listOf(
         "https://cdn.pixabay.com/photo/2021/02/23/10/19/bird-6043004_1280.jpg", // bird

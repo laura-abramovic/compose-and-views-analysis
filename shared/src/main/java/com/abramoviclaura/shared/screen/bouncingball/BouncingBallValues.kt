@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 object BouncingBallValues {
 
-    const val BALL_COUNT = 10
+    const val BALL_COUNT = 50
 
     fun getRandomColor() = (Math.random() * 16777215).toInt() or (0xFF shl 24)
     fun getRandomStartDelay() = Random.nextInt(10, 100)

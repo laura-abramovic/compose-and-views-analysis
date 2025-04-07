@@ -1,3 +1,5 @@
+#!/bin/bash
+
 compose_app_package="com.abramoviclaura.androidanalysisui.compose"
 compose_app_main_activity="$compose_app_package/com.abramoviclaura.composeui.MainActivity"
 
