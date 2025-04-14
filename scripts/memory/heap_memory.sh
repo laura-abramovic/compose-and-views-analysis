@@ -3,9 +3,9 @@
 compose_app_package="com.abramoviclaura.androidanalysisui.compose"
 views_app_package="com.abramoviclaura.androidanalysisui.views"
 
-package=$compose_app_package
+package=$views_app_package
 
-output_file="output_graphic_memory.csv"
+output_file="output_heap_memory.csv"
 output="scripts/memory/outputs/$output_file"
 
 touch $output
@@ -14,7 +14,7 @@ touch $output
     echo "Device,$(adb shell getprop ro.product.model)"
     echo "Android Version,$(adb shell getprop ro.build.version.release)"
     echo "API Level,$(adb shell getprop ro.build.version.sdk)"
-    echo "Run,Graphics_Memory,GL_Memory,EGL_Memory"
+    echo "Run,Java_heap,Native_heap"
 } > $output
 
  adb shell dumpsys gfxinfo $package reset > /dev/null 2>&1
@@ -24,15 +24,13 @@ for i in {1..10}; do
 
     MEMINFO=$(adb shell dumpsys meminfo $package)
 
-    GRAPHICS_MEM=$(echo "$MEMINFO" | grep -m 1 "Graphics" | awk '{print $2}')
-    GL_MEM=$(echo "$MEMINFO" | grep -m 1 "GL" | awk '{print $3}')
-    EGL_MEM=$(echo "$MEMINFO" | grep -m 1 "EGL" | awk '{print $3}')
+    JAVA_HEAP=$(echo "$MEMINFO" | grep -m 1 "Java Heap" | awk '{print $3}')
+    NATIVE_HEAP=$(echo "$MEMINFO" | grep -m 1 "Native Heap" | awk '{print $3}')
 
     # If a value is not found, default to 0
-    GRAPHICS_MEM=${GRAPHICS_MEM:-0}
-    GL_MEM=${GL_MEM:-0}
-    EGL_MEM=${EGL_MEM:-0}
+    JAVA_HEAP=${JAVA_HEAP:-0}
+    NATIVE_HEAP=${NATIVE_HEAP:-0}
 
-    echo "$i,$GRAPHICS_MEM,$GL_MEM,$EGL_MEM" >> "$output"
+    echo "$i,$JAVA_HEAP,$NATIVE_HEAP" >> "$output"
     sleep 5
 done
